@@ -1,0 +1,1151 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head></head><body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    
+    
+    
+    
+
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Load Libraries</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Load Dataset</span>
+<span class="n">dataset</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./Happy_Dataset.csv&#39;</span><span class="p">)</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X1</th>
+      <th>X2</th>
+      <th>X3</th>
+      <th>X4</th>
+      <th>X5</th>
+      <th>X6</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>4</td>
+      <td>2</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3</td>
+      <td>2</td>
+      <td>3</td>
+      <td>5</td>
+      <td>4</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5</td>
+      <td>4</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>4</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Show Key Statistics</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X1</th>
+      <th>X2</th>
+      <th>X3</th>
+      <th>X4</th>
+      <th>X5</th>
+      <th>X6</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>143.000000</td>
+      <td>143.000000</td>
+      <td>143.000000</td>
+      <td>143.000000</td>
+      <td>143.000000</td>
+      <td>143.000000</td>
+      <td>143.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>4.314685</td>
+      <td>2.538462</td>
+      <td>3.265734</td>
+      <td>3.699301</td>
+      <td>3.615385</td>
+      <td>4.216783</td>
+      <td>0.538462</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.799820</td>
+      <td>1.118155</td>
+      <td>0.992586</td>
+      <td>0.888383</td>
+      <td>1.131639</td>
+      <td>0.848693</td>
+      <td>0.500271</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>4.000000</td>
+      <td>2.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>4.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>5.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>5.000000</td>
+      <td>3.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>5.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Create Profile Report</span>
+ 
+<span class="c1">#Importing package</span>
+<span class="kn">import</span> <span class="nn">pandas_profiling</span> <span class="k">as</span> <span class="nn">pp</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+ 
+<span class="c1"># Profile Report</span>
+<span class="n">happyreport</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">ProfileReport</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+<span class="n">happyreport</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s1">&#39;happyreport-lbfgs.html&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">IFrame</span><span class="p">(</span><span class="s1">&#39;happyreport-lbfgs.html&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">900</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">350</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output">
+<pre>Summarize dataset:   0%|          | 0/5 [00:00&lt;?, ?it/s]</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output">
+<pre>Generate report structure:   0%|          | 0/1 [00:00&lt;?, ?it/s]</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output">
+<pre>Render HTML:   0%|          | 0/1 [00:00&lt;?, ?it/s]</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output">
+<pre>Export report to file:   0%|          | 0/1 [00:00&lt;?, ?it/s]</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output">
+
+        <iframe class="d2l-xspl-box" src="https://durhamcollege.desire2learn.com/d2l/lp/externalUrls/xspl?url=happyreport-lbfgs.html" data-original-html="&lt;iframe width=&quot;900&quot; height=&quot;350&quot; src=&quot;happyreport-lbfgs.html&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;" frameborder="0" scrolling="no" allowfullscreen></iframe>
+
+        
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Covariance test - Levene Test</span>
+
+<span class="c1">#   p &lt;= alpha(0.05): reject H0, not the same covariance.</span>
+<span class="c1">#   p &gt; alpha(0.05): fail to reject H0, same covariance.</span>
+
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="n">names</span><span class="o">=</span><span class="n">dataset</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+
+<span class="n">cnt</span><span class="o">=</span><span class="mi">1</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">dataset</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">col</span><span class="o">==</span><span class="s1">&#39;D&#39;</span><span class="p">):</span>
+        <span class="k">continue</span>
+        
+    <span class="n">stat</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">levene</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;D&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">names</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> 
+               <span class="n">dataset</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;D&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">names</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Statistics=</span><span class="si">%.3f</span><span class="s1">, p=</span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+    <span class="c1"># interpret</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+    <span class="k">if</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="n">alpha</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Covariance the Same (fail to reject H0)&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Covariance different(reject H0)&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">cnt</span> <span class="o">+=</span><span class="mi">1</span>    
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output">
+<pre>X1
+Statistics=0.000, p=1.000
+Covariance the Same (fail to reject H0)
+
+
+X2
+Statistics=0.000, p=1.000
+Covariance the Same (fail to reject H0)
+
+
+X3
+Statistics=0.000, p=1.000
+Covariance the Same (fail to reject H0)
+
+
+X4
+Statistics=0.000, p=1.000
+Covariance the Same (fail to reject H0)
+
+
+X5
+Statistics=0.000, p=1.000
+Covariance the Same (fail to reject H0)
+
+
+X6
+Statistics=0.000, p=1.000
+Covariance the Same (fail to reject H0)
+
+
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Normality test - Shapiro-Wilk Test</span>
+<span class="c1"># p &lt;= alpha(0.05): reject H0, not normal.</span>
+<span class="c1"># p &gt; alpha(0.05): fail to reject H0, normal.</span>
+
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">shapiro</span>
+
+<span class="n">cnt</span><span class="o">=</span><span class="mi">1</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">dataset</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">col</span><span class="o">==</span><span class="s1">&#39;D&#39;</span><span class="p">):</span>
+        <span class="k">continue</span>
+        
+    <span class="n">stat</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">shapiro</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Statistics=</span><span class="si">%.3f</span><span class="s1">, p=</span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+    <span class="c1"># interpret</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+    <span class="k">if</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="n">alpha</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sample looks Gaussian (fail to reject H0)&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sample does not look Gaussian (reject H0)&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">cnt</span> <span class="o">+=</span><span class="mi">1</span>    
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output">
+<pre>X1
+Statistics=0.763, p=0.000
+Sample does not look Gaussian (reject H0)
+
+
+X2
+Statistics=0.902, p=0.000
+Sample does not look Gaussian (reject H0)
+
+
+X3
+Statistics=0.894, p=0.000
+Sample does not look Gaussian (reject H0)
+
+
+X4
+Statistics=0.867, p=0.000
+Sample does not look Gaussian (reject H0)
+
+
+X5
+Statistics=0.873, p=0.000
+Sample does not look Gaussian (reject H0)
+
+
+X6
+Statistics=0.790, p=0.000
+Sample does not look Gaussian (reject H0)
+
+
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Create x and y variables</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;D&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+<span class="c1">#Create Train and Test Dataset</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="n">x_train</span><span class="p">,</span><span class="n">x_test</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span><span class="n">stratify</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1">#Fix the imbalanced Classes</span>
+<span class="kn">from</span> <span class="nn">imblearn.over_sampling</span> <span class="kn">import</span> <span class="n">SMOTE</span>
+<span class="n">smt</span><span class="o">=</span><span class="n">SMOTE</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">x_train_smt</span><span class="p">,</span><span class="n">y_train_smt</span> <span class="o">=</span> <span class="n">smt</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1">#Scale the Data</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="n">sc</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">x_train2</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x_train_smt</span><span class="p">)</span>
+<span class="n">x_test2</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+
+<span class="c1">#Models</span>
+<span class="kn">from</span> <span class="nn">sklearn.discriminant_analysis</span> <span class="kn">import</span> <span class="n">LinearDiscriminantAnalysis</span><span class="p">,</span> <span class="n">QuadraticDiscriminantAnalysis</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Class Balance - Test Data</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Train Data - Class Split&#39;</span><span class="p">)</span>
+<span class="n">num_zeros</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_train_smt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">num_ones</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_train_smt</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Class 0 -&#39;</span><span class="p">,</span>  <span class="n">num_zeros</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Class 1 -&#39;</span><span class="p">,</span>  <span class="n">num_ones</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output">
+<pre>Train Data - Class Split
+Class 0 - 61
+Class 1 - 61
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Base LDA, QDA and Logistical Regression Model</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>  
+
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span><span class="n">method</span> <span class="ow">in</span> <span class="p">[(</span><span class="s1">&#39;LDA&#39;</span><span class="p">,</span> <span class="n">LinearDiscriminantAnalysis</span><span class="p">()),(</span><span class="s1">&#39;QDA&#39;</span><span class="p">,</span><span class="n">QuadraticDiscriminantAnalysis</span><span class="p">())]:</span> 
+    <span class="n">method</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train2</span><span class="p">,</span><span class="n">y_train_smt</span><span class="p">)</span>
+    <span class="n">predict</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Estimator: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">predict</span><span class="p">))</span>  
+    <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">predict</span><span class="p">))</span>    
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output">
+<pre>
+Estimator: LDA
+[[ 8  5]
+ [ 2 14]]
+              precision    recall  f1-score   support
+
+           0       0.80      0.62      0.70        13
+           1       0.74      0.88      0.80        16
+
+    accuracy                           0.76        29
+   macro avg       0.77      0.75      0.75        29
+weighted avg       0.77      0.76      0.75        29
+
+
+Estimator: QDA
+[[ 9  4]
+ [ 3 13]]
+              precision    recall  f1-score   support
+
+           0       0.75      0.69      0.72        13
+           1       0.76      0.81      0.79        16
+
+    accuracy                           0.76        29
+   macro avg       0.76      0.75      0.75        29
+weighted avg       0.76      0.76      0.76        29
+
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Construct some pipelines </span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="c1">#Create Pipeline</span>
+
+<span class="n">pipeline</span> <span class="o">=</span><span class="p">[]</span>
+
+<span class="n">pipe_lda</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scl&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+                    <span class="p">(</span><span class="s1">&#39;clf&#39;</span><span class="p">,</span> <span class="n">LinearDiscriminantAnalysis</span><span class="p">())])</span>
+<span class="n">pipeline</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">pipe_lda</span><span class="p">)</span>
+
+<span class="n">pipe_qda</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scl&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+                    <span class="p">(</span><span class="s1">&#39;clf&#39;</span><span class="p">,</span> <span class="n">QuadraticDiscriminantAnalysis</span><span class="p">())])</span>
+<span class="n">pipeline</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">pipe_qda</span><span class="p">)</span>
+
+    
+    
+<span class="c1"># Set grid search params </span>
+
+<span class="n">modelpara</span> <span class="o">=</span><span class="p">[]</span>
+
+<span class="n">param_gridlda</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;clf__solver&#39;</span><span class="p">:[</span><span class="s1">&#39;svd&#39;</span><span class="p">,</span><span class="s1">&#39;lsqr&#39;</span><span class="p">,</span><span class="s1">&#39;eigen&#39;</span><span class="p">]}</span>
+<span class="n">modelpara</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">param_gridlda</span><span class="p">)</span>
+
+<span class="n">param_gridqda</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">modelpara</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">param_gridqda</span><span class="p">)</span>
+
+<span class="n">param_gridlogreg</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;clf__C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> 
+                    <span class="s1">&#39;clf__penalty&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;l2&#39;</span><span class="p">]}</span>
+<span class="n">modelpara</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">param_gridlogreg</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Define Plot for learning curve</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">learning_curve</span>
+
+<span class="k">def</span> <span class="nf">plot_learning_curves</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+    <span class="n">train_sizes</span><span class="p">,</span> <span class="n">train_scores</span><span class="p">,</span> <span class="n">test_scores</span> <span class="o">=</span> <span class="n">learning_curve</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+                                                            <span class="n">X</span><span class="o">=</span><span class="n">x_train_smt</span><span class="p">,</span> 
+                                                            <span class="n">y</span><span class="o">=</span><span class="n">y_train_smt</span><span class="p">,</span>
+                                                            <span class="n">train_sizes</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+                                                            <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                                                            <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;recall_weighted&#39;</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">train_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">train_scores</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">train_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">train_scores</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">test_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">test_scores</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">test_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">test_scores</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_sizes</span><span class="p">,</span> <span class="n">train_mean</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> 
+             <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;training recall&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">train_sizes</span><span class="p">,</span> <span class="n">train_mean</span> <span class="o">+</span> <span class="n">train_std</span><span class="p">,</span> <span class="n">train_mean</span> <span class="o">-</span> <span class="n">train_std</span><span class="p">,</span>
+                     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_sizes</span><span class="p">,</span> <span class="n">test_mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+             <span class="n">label</span><span class="o">=</span><span class="s1">&#39;validation recall&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">train_sizes</span><span class="p">,</span> <span class="n">test_mean</span> <span class="o">+</span> <span class="n">test_std</span><span class="p">,</span> <span class="n">test_mean</span> <span class="o">-</span> <span class="n">test_std</span><span class="p">,</span>
+                     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number of training samples&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Recall&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Model Analysis</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">RepeatedKFold</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+
+<span class="n">models</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">models</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;LDA&#39;</span><span class="p">,</span><span class="n">pipe_lda</span><span class="p">))</span>
+<span class="n">models</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;QDA&#39;</span><span class="p">,</span><span class="n">pipe_qda</span><span class="p">))</span>
+
+
+<span class="c1">#Model Evaluation</span>
+<span class="n">results</span> <span class="o">=</span><span class="p">[]</span>
+<span class="n">names</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">scoring</span> <span class="o">=</span><span class="s1">&#39;recall_weighted&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Model Evaluation - Recall Score&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
+    <span class="n">rkf</span><span class="o">=</span><span class="n">RepeatedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_repeats</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">cv_results</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">x_train_smt</span><span class="p">,</span><span class="n">y_train_smt</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="n">rkf</span><span class="p">,</span><span class="n">scoring</span><span class="o">=</span><span class="n">scoring</span><span class="p">)</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cv_results</span><span class="p">)</span>
+    <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> </span><span class="si">{:.2f}</span><span class="s1"> +/- </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">cv_results</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">cv_results</span><span class="o">.</span><span class="n">std</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> 
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Boxplot View&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">results</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Recall&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Model&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output">
+<pre>Model Evaluation - Recall Score
+LDA 0.54 +/- 0.12
+QDA 0.50 +/- 0.14
+
+
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output">
+<img src="javascript://" class="jp-needs-light-background"/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[13]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Define Gridsearch Function</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>  
+
+<span class="k">def</span> <span class="nf">Gridsearch_cv</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    
+    <span class="c1">#Cross-validation Function</span>
+    <span class="n">cv2</span><span class="o">=</span><span class="n">RepeatedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_repeats</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+        
+    <span class="c1">#GridSearch CV</span>
+    <span class="n">gs_clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv2</span><span class="p">,</span><span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;recall_weighted&#39;</span><span class="p">)</span>
+    <span class="n">gs_clf</span> <span class="o">=</span> <span class="n">gs_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train_smt</span><span class="p">,</span> <span class="n">y_train_smt</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">gs_clf</span><span class="o">.</span><span class="n">best_estimator_</span>
+    
+    <span class="c1"># Use best model and test data for final evaluation</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+
+    <span class="c1">#Identify Best Parameters to Optimize the Model</span>
+    <span class="n">bestpara</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">gs_clf</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
+    
+    <span class="c1">#Output Validation Statistics</span>
+    <span class="n">target_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Outcome 0&#39;</span><span class="p">,</span><span class="s1">&#39;Outcome 1&#39;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Optimized Model&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Model Name:&#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">pipeline</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s1">&#39;clf&#39;</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Best Parameters:&#39;</span><span class="p">,</span><span class="n">bestpara</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">))</span>  
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">,</span><span class="n">target_names</span><span class="o">=</span><span class="n">target_names</span><span class="p">))</span> 
+        
+    <span class="c1">#Transform the variables into binary (0,1) - ROC Curve</span>
+    <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
+    <span class="n">Forecast1</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">Outcome1</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+    <span class="n">lb1</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">LabelBinarizer</span><span class="p">()</span>
+    <span class="n">OutcomeB1</span> <span class="o">=</span><span class="n">lb1</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">Outcome1</span><span class="p">)</span>
+    <span class="n">ForecastB1</span> <span class="o">=</span> <span class="n">lb1</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">Forecast1</span><span class="p">)</span>
+    
+    <span class="c1">#Setup the ROC Curve</span>
+    <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_curve</span><span class="p">,</span> <span class="n">auc</span>
+    <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+    <span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">OutcomeB1</span><span class="p">,</span> <span class="n">ForecastB1</span><span class="p">)</span>
+    <span class="n">roc_auc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">auc</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ROC Curve&#39;</span><span class="p">)</span>
+    <span class="c1">#Plot the ROC Curve</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Receiver Operating Characteristic&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;AUC = </span><span class="si">%0.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">roc_auc</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span><span class="s1">&#39;r--&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;True Positive Rate&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;False Positive Rate&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>   
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[14]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Run Models</span>
+
+<span class="k">for</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">modelpara</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span><span class="n">modelpara</span><span class="p">):</span>
+    <span class="n">Gridsearch_cv</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span><span class="n">modelpara</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output">
+<pre>
+Optimized Model
+
+Model Name: LinearDiscriminantAnalysis()
+
+Best Parameters: {&#39;clf__solver&#39;: &#39;svd&#39;}
+
+ [[ 8  5]
+ [ 2 14]]
+
+               precision    recall  f1-score   support
+
+   Outcome 0       0.80      0.62      0.70        13
+   Outcome 1       0.74      0.88      0.80        16
+
+    accuracy                           0.76        29
+   macro avg       0.77      0.75      0.75        29
+weighted avg       0.77      0.76      0.75        29
+
+ROC Curve
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output">
+<img src="javascript://" class="jp-needs-light-background"/>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output">
+<pre>
+Optimized Model
+
+Model Name: QuadraticDiscriminantAnalysis()
+
+Best Parameters: {}
+
+ [[ 9  4]
+ [ 3 13]]
+
+               precision    recall  f1-score   support
+
+   Outcome 0       0.75      0.69      0.72        13
+   Outcome 1       0.76      0.81      0.79        16
+
+    accuracy                           0.76        29
+   macro avg       0.76      0.75      0.75        29
+weighted avg       0.76      0.76      0.76        29
+
+ROC Curve
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output">
+<img src="javascript://" class="jp-needs-light-background"/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[&#160;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<script type="module" src="https://s.brightspace.com/lib/bsi/20.22.11-199/unbundled/mathjax.js"></script><script type="text/javascript">document.addEventListener('DOMContentLoaded', function() {
+					if (document.querySelector('math') || /\$\$|\\\(|\\\[|\\begin{|\\ref{|\\eqref{/.test(document.body.innerHTML)) {
+						document.querySelectorAll('mspace[linebreak="newline"]').forEach(elm => {
+							elm.setAttribute('style', 'display: block; height: 0.5rem;');
+						});
+
+						window.D2L.MathJax.loadMathJax({
+							'outputScale': 1.3,
+							'renderLatex': false
+						});
+					}
+				});</script><script type="module" src="https://s.brightspace.com/lib/bsi/20.22.11-199/unbundled/prism.js"></script><script type="text/javascript">document.addEventListener('DOMContentLoaded', function() {
+					document.querySelectorAll('.d2l-code').forEach(code => {
+						window.D2L.Prism.formatCodeElement(code);
+					});
+				});</script></body></html>
