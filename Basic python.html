@@ -1,0 +1,669 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head></head><body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    
+    
+    
+    
+
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Import pandas</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Set file path to a variable</span>
+<span class="n">input_file_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\kavis\Documents\Class-sem1\Data1202\Labs\vgsales.csv&quot;</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output">
+<pre>done
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Read Data into a DataFrame</span>
+<span class="n">input_raw_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">input_file_path</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># How to create an engine and connect to a database</span>
+
+<span class="c1"># import required libraries</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+<span class="kn">import</span> <span class="nn">pymysql</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output">
+<pre>done
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># create engine</span>
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;mysql+pymysql://root:@127.0.0.1:51211&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output">
+<pre>done
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># connection string</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output">
+<pre>done
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># read a simple query into DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM data1202.vgsales&quot;</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># print DataFrame</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Platform</th>
+      <th>Year</th>
+      <th>Genre</th>
+      <th>Publisher</th>
+      <th>NA_Sales</th>
+      <th>EU_Sales</th>
+      <th>JP_Sales</th>
+      <th>Other_Sales</th>
+      <th>Global_Sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Wii Sports</td>
+      <td>Wii</td>
+      <td>2006</td>
+      <td>Sports</td>
+      <td>Nintendo</td>
+      <td>41.49</td>
+      <td>29.02</td>
+      <td>3.77</td>
+      <td>8.46</td>
+      <td>82.74</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Super Mario Bros.</td>
+      <td>NES</td>
+      <td>1985</td>
+      <td>Platform</td>
+      <td>Nintendo</td>
+      <td>29.08</td>
+      <td>3.58</td>
+      <td>6.81</td>
+      <td>0.77</td>
+      <td>40.24</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Mario Kart Wii</td>
+      <td>Wii</td>
+      <td>2008</td>
+      <td>Racing</td>
+      <td>Nintendo</td>
+      <td>15.85</td>
+      <td>12.88</td>
+      <td>3.79</td>
+      <td>3.31</td>
+      <td>35.82</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Wii Sports Resort</td>
+      <td>Wii</td>
+      <td>2009</td>
+      <td>Sports</td>
+      <td>Nintendo</td>
+      <td>15.75</td>
+      <td>11.01</td>
+      <td>3.28</td>
+      <td>2.96</td>
+      <td>33.00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Pokemon Red/Pokemon Blue</td>
+      <td>GB</td>
+      <td>1996</td>
+      <td>Role-Playing</td>
+      <td>Nintendo</td>
+      <td>11.27</td>
+      <td>8.89</td>
+      <td>10.22</td>
+      <td>1.00</td>
+      <td>31.37</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>Tetris</td>
+      <td>GB</td>
+      <td>1989</td>
+      <td>Puzzle</td>
+      <td>Nintendo</td>
+      <td>23.20</td>
+      <td>2.26</td>
+      <td>4.22</td>
+      <td>0.58</td>
+      <td>30.26</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>New Super Mario Bros.</td>
+      <td>DS</td>
+      <td>2006</td>
+      <td>Platform</td>
+      <td>Nintendo</td>
+      <td>11.38</td>
+      <td>9.23</td>
+      <td>6.50</td>
+      <td>2.90</td>
+      <td>30.01</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>Wii Play</td>
+      <td>Wii</td>
+      <td>2006</td>
+      <td>Misc</td>
+      <td>Nintendo</td>
+      <td>14.03</td>
+      <td>9.20</td>
+      <td>2.93</td>
+      <td>2.85</td>
+      <td>29.02</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>New Super Mario Bros. Wii</td>
+      <td>Wii</td>
+      <td>2009</td>
+      <td>Platform</td>
+      <td>Nintendo</td>
+      <td>14.59</td>
+      <td>7.06</td>
+      <td>4.70</td>
+      <td>2.26</td>
+      <td>28.62</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>Duck Hunt</td>
+      <td>NES</td>
+      <td>1984</td>
+      <td>Shooter</td>
+      <td>Nintendo</td>
+      <td>26.93</td>
+      <td>0.63</td>
+      <td>0.28</td>
+      <td>0.47</td>
+      <td>28.31</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_q1</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;SELECT AVG(Global_sales), </span>
+<span class="s1">CASE</span>
+<span class="s1">WHEN year &lt; 2005 THEN &#39;Pre-2005&#39; </span>
+<span class="s1">when year &gt; 2005 THEN &#39;Post-2005&#39; </span>
+<span class="s1">ELSE &#39;2005&#39;</span>
+<span class="s1">END AS Label </span>
+<span class="s1">FROM data1202.vgsales </span>
+<span class="s1">group by Label&#39;&#39;&#39;</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+<span class="n">df_q1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AVG(Global_sales)</th>
+      <th>Label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.489448</td>
+      <td>Post-2005</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.649884</td>
+      <td>Pre-2005</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.488778</td>
+      <td>2005</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_q2</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;SELECT *,CASE WHEN year &lt;2005 THEN &#39;pre-2005&#39; ELSE &#39;post-2005&#39;END AS Label FROM data1202.vgsales&#39;&#39;&#39;</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+<span class="n">df_q2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Platform</th>
+      <th>Year</th>
+      <th>Genre</th>
+      <th>Publisher</th>
+      <th>NA_Sales</th>
+      <th>EU_Sales</th>
+      <th>JP_Sales</th>
+      <th>Other_Sales</th>
+      <th>Global_Sales</th>
+      <th>Label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Wii Sports</td>
+      <td>Wii</td>
+      <td>2006</td>
+      <td>Sports</td>
+      <td>Nintendo</td>
+      <td>41.49</td>
+      <td>29.02</td>
+      <td>3.77</td>
+      <td>8.46</td>
+      <td>82.74</td>
+      <td>post-2005</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Super Mario Bros.</td>
+      <td>NES</td>
+      <td>1985</td>
+      <td>Platform</td>
+      <td>Nintendo</td>
+      <td>29.08</td>
+      <td>3.58</td>
+      <td>6.81</td>
+      <td>0.77</td>
+      <td>40.24</td>
+      <td>pre-2005</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Mario Kart Wii</td>
+      <td>Wii</td>
+      <td>2008</td>
+      <td>Racing</td>
+      <td>Nintendo</td>
+      <td>15.85</td>
+      <td>12.88</td>
+      <td>3.79</td>
+      <td>3.31</td>
+      <td>35.82</td>
+      <td>post-2005</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Wii Sports Resort</td>
+      <td>Wii</td>
+      <td>2009</td>
+      <td>Sports</td>
+      <td>Nintendo</td>
+      <td>15.75</td>
+      <td>11.01</td>
+      <td>3.28</td>
+      <td>2.96</td>
+      <td>33.00</td>
+      <td>post-2005</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Pokemon Red/Pokemon Blue</td>
+      <td>GB</td>
+      <td>1996</td>
+      <td>Role-Playing</td>
+      <td>Nintendo</td>
+      <td>11.27</td>
+      <td>8.89</td>
+      <td>10.22</td>
+      <td>1.00</td>
+      <td>31.37</td>
+      <td>pre-2005</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[&#160;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<script type="module" src="https://s.brightspace.com/lib/bsi/20.22.11-199/unbundled/mathjax.js"></script><script type="text/javascript">document.addEventListener('DOMContentLoaded', function() {
+					if (document.querySelector('math') || /\$\$|\\\(|\\\[|\\begin{|\\ref{|\\eqref{/.test(document.body.innerHTML)) {
+						document.querySelectorAll('mspace[linebreak="newline"]').forEach(elm => {
+							elm.setAttribute('style', 'display: block; height: 0.5rem;');
+						});
+
+						window.D2L.MathJax.loadMathJax({
+							'outputScale': 1.3,
+							'renderLatex': false
+						});
+					}
+				});</script><script type="module" src="https://s.brightspace.com/lib/bsi/20.22.11-199/unbundled/prism.js"></script><script type="text/javascript">document.addEventListener('DOMContentLoaded', function() {
+					document.querySelectorAll('.d2l-code').forEach(code => {
+						window.D2L.Prism.formatCodeElement(code);
+					});
+				});</script></body></html>
